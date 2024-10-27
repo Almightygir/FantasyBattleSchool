@@ -18,11 +18,17 @@ jobs:
           VERSION=$(jq -r '.version' system.json)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Zip the project
+        run: |
+          mkdir -p release
+          zip -r release/system.zip . -x "*.git*" -x "release/*"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.VERSION }}
           name: Release ${{ env.VERSION }}
           body: "Automated release for version ${{ env.VERSION }}."
+          files: release/system.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
