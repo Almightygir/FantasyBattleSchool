@@ -17,6 +17,7 @@
   ],
   "packs": [],
   "languages": [],
+  "actorTypes": ["character", "npc"],
   "url": "https://github.com/Almightygir/FantasyBattleSchool",
   "manifest": "https://github.com/Almightygir/FantasyBattleSchool/releases/latest/download/system.json",
   "download": "https://github.com/Almightygir/FantasyBattleSchool/releases/latest/download/system.zip"
