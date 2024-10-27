@@ -1,0 +1,25 @@
+<!-- templates/actor/actor-sheet.html -->
+<form class="sheet actor-sheet fantasybattleschool-sheet" autocomplete="off">
+    <header class="sheet-header">
+        <h1>{{name}}</h1>
+    </header>
+
+    <div class="sheet-body">
+        <!-- Attributes Section -->
+        <section class="attributes">
+            <h2>Attributes</h2>
+            <div class="attribute">
+                <label for="strength">Strength:</label>
+                <input type="number" name="data.attributes.strength" value="{{data.attributes.strength}}" />
+            </div>
+            <div class="attribute">
+                <label for="vitality">Vitality:</label>
+                <input type="number" name="data.attributes.vitality" value="{{data.attributes.vitality}}" />
+            </div>
+            <div class="attribute">
+                <label for="magic">Magic:</label>
+                <input type="number" name="data.attributes.magic" value="{{data.attributes.magic}}" />
+            </div>
+        </section>
+    </div>
+</form>

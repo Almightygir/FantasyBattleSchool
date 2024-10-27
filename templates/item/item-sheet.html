@@ -1,0 +1,21 @@
+<!-- templates/item/item-sheet.html -->
+<form class="sheet item-sheet fantasybattleschool-sheet" autocomplete="off">
+    <header class="sheet-header">
+        <h1>{{name}}</h1>
+    </header>
+
+    <div class="sheet-body">
+        <!-- General Item Information -->
+        <section class="item-details">
+            <h2>Item Details</h2>
+            <div class="item-property">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="data.quantity" value="{{data.quantity}}" />
+            </div>
+            <div class="item-property" data-type="magic">
+                <label for="power">Power:</label>
+                <input type="number" name="data.power" value="{{data.power}}" />
+            </div>
+        </section>
+    </div>
+</form>
