@@ -1,9 +1,8 @@
-// system.json - Metadata for the FantasyBattleSchool system
 {
   "name": "fantasybattleschool",
   "title": "Fantasy Battle School",
   "description": "A custom Foundry VTT game system inspired by Final Fantasy mechanics, including Junction and Draw.",
-  "version": "0.0.01a",
+  "version": "0.0.01",
   "author": "User",
   "compatibility": {
     "minimum": "12.000",
