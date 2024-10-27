@@ -21,11 +21,11 @@ jobs:
       - name: Update system.json version
         run: |
           VERSION=$(cat version.txt | tr -d '"')
-          jq ".version = \"$VERSION\"" system.json > tmp.json && mv tmp.json system.json
+          jq ".version = \"${VERSION}\"" system.json > tmp.json && mv tmp.json system.json
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add system.json
-          git commit -m "Update system.json version to $VERSION"
+          git commit -m "Update system.json version to ${VERSION}"
           git push
 
       - name: Create GitHub Release
