@@ -1,22 +1,36 @@
-name: Create GitHub Release
+name: Update and Create Release
 
 on:
   push:
-    tags-ignore:
-      - '**'
     paths:
-      - 'version.txt'
+      - "version.txt"
 
 jobs:
-  create_foundry_release:
+  create-release:
     runs-on: ubuntu-latest
-    name: Foundry Release
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Foundry Release
-        id: foundry-release
-        uses: foundryvtt-dcc/foundry-release-action@main
+
+      - name: Read version
+        id: read_version
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
+
+      - name: Update system.json version
+        run: |
+          VERSION=$(cat version.txt)
+          jq ".version = \"${VERSION}\"" system.json > tmp.json && mv tmp.json system.json
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add system.json
+          git commit -m "Update system.json version to ${VERSION}"
+          git push
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          actionToken: ${{ secrets.GITHUB_TOKEN }}
-          manifestFileName: 'system.json'
+          tag_name: ${{ env.VERSION }}
+          name: Release ${{ env.VERSION }}
+          body: "Automated release for version ${{ env.VERSION }}."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
