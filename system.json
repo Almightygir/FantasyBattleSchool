@@ -2,7 +2,7 @@
   "name": "fantasybattleschool",
   "title": "Fantasy Battle School",
   "description": "A custom Foundry VTT game system inspired by Final Fantasy mechanics, including Junction and Draw.",
-  "version": "0.0.01",
+  "version": "0.0.01a",
   "author": "User",
   "compatibility": {
     "minimum": "12.000",
