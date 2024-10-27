@@ -16,5 +16,8 @@
     "styles/fantasybattleschool.css"
   ],
   "packs": [],
-  "languages": []
+  "languages": [],
+  "url": "https://github.com/Almightygir/FantasyBattleSchool",
+  "manifest": "https://github.com/Almightygir/FantasyBattleSchool/releases/latest/download/system.json",
+  "download": "https://github.com/Almightygir/FantasyBattleSchool/releases/latest/download/system.zip"
 }
